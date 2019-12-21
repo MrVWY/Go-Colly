@@ -1,4 +1,5 @@
 package main
+
 //Scapter Server ||| URL filter
 import (
 	"fmt"
@@ -18,6 +19,7 @@ func handler(w http.ResponseWriter, r *http.Request)  {
 	C := colly.NewCollector(
 		//examples ---- URL filter
 		colly.URLFilters(
+			//[]*regexp.Regexp
 			regexp.MustCompile("http://httpbin\\.org/(|e.+)$"),
 			regexp.MustCompile("http://httpbin\\.org/h.+"),
 		),
